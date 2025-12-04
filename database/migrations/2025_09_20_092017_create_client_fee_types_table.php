@@ -1,0 +1,32 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    /**
+     * Run the migrations.
+     */
+    public function up(): void
+    {
+        Schema::create('client_fee_types', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('client_id')->constrained();
+            $table->foreignId('fee_type_id')->constrained();
+            $table->integer('fee_amount')->nullable();
+            $table->string('short_comments')->nullable();
+            $table->dateTimeTz('registeration_date')->nllable();
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     */
+    public function down(): void
+    {
+        Schema::dropIfExists('client_fee_types');
+    }
+};
