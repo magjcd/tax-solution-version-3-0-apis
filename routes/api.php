@@ -9,7 +9,6 @@ use App\Http\Controllers\APIs\JVController;
 use App\Http\Controllers\APIs\RetTrkController;
 use App\Http\Controllers\APIs\RTOController;
 use App\Http\Controllers\APIs\UserController;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 // Route::get('/user', function (Request $request) {
