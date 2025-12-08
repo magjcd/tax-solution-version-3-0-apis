@@ -49,6 +49,7 @@ class ClientClass implements ClientInterface
     public function updateClientProfile($data)
     {
         DB::beginTransaction();
+
         try {
 
             $client_payload = [
