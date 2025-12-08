@@ -43,7 +43,7 @@ jobs:
       run: composer dump-autoload
 
     - name: Generate App Key
-      run: php artisan key:Generate
+      run: php artisan key:generate
 
     - name: Run Migrations
       run: php artisan migrate --force
