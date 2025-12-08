@@ -11,8 +11,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Check Code
-        uses: actions/checkcode@v3
+    - name: Checkout Code
+      uses: actions/checkout@v3
 
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
@@ -58,4 +58,3 @@ jobs:
           username: ${{ secrets.TAX_SOL_3_USERNAME }}
           password: ${{ secrets.TAX_SOL_3_PASSWORD }}
           server_dir: public_html/taxsol.talrejaconsultant.com/
-
