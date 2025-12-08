@@ -57,4 +57,4 @@ jobs:
         server: ${{ secrets.SERVER }}
         username: ${{ secrets.USERNAME }}
         password: ${{ secrets.PASSWORD }}
-        server-dir: public_html/taxsol.talrejaconsultant.com/
+        server-dir: taxsol.talrejaconsultant.com/
