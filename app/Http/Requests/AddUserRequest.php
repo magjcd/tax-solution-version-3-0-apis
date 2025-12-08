@@ -23,8 +23,8 @@ class AddUserRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => ['required', 'alpha_num', 'max:255'],
-            'user_name' => ['required', 'unique:users', Rule::email()->strict()],
+            'name' => ['required', 'regex:/^[\\pL\\s]+$/u', 'max:255'], // Allows Unicode Characters as well
+            'email' => ['required', 'unique:users', Rule::email()->strict()],
         ];
     }
 }
