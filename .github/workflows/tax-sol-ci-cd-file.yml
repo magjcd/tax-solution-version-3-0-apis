@@ -1,0 +1,61 @@
+name: Tax Solution Version 3.0
+
+on:
+  push:
+    branches:
+    - main
+
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check Code
+        uses: actions/checkcode@v3
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: 8.3
+
+      - name: Install Composer Dependencies
+        run: composer install --optimize-autoloader --no-dev --no-progress --no-interaction --prefer-dist
+
+      - name: Install Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'
+
+      - name: Install NPM Dependencies
+        run: npm install
+
+      - name: Build NPM Assets
+        run: npm run build
+
+      - name: Config Cache
+        run: php artisan config:cache
+
+      - name: Clear Config Cache
+        run: php artisan config:clear
+
+      - name: CComposer Dump
+        run: composer dump-autoload
+
+      #- name: Generate App Key
+      # run: php artisan key:Generate
+
+      - name: Run Migrations
+        run: php artisan migrate --force
+
+      - name: Run Optimization
+        run: php artisan optimize
+
+      - name: FTP-Deploy-Action
+        uses: SamKirkland/FTP-Deploy-Action@4.3.3
+        with:
+          server: ${{ secrets.TAX_SOL_3_SERVER }}
+          username: ${{ secrets.TAX_SOL_3_USERNAME }}
+          password: ${{ secrets.TAX_SOL_3_PASSWORD }}
+          server_dir: public_html/taxsol.talrejaconsultant.com/
+
