@@ -57,5 +57,5 @@ jobs:
           server: ${{ secrets.TAX_SOL_3_SERVER }}
           username: ${{ secrets.TAX_SOL_3_USERNAME }}
           password: ${{ secrets.TAX_SOL_3_PASSWORD }}
-          # folder: public_html/testlaravelappftp.talrejaconsultant.com
           server_dir: public_html/taxsol.talrejaconsultant.com/
+
