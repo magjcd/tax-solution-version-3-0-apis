@@ -54,7 +54,7 @@ jobs:
     - name: FTP-Deploy-Action
       uses: SamKirkland/FTP-Deploy-Action@4.3.3
       with:
-        server: ${{ secrets.TAX_SOL_3_SERVER }}
-        username: ${{ secrets.TAX_SOL_3_USERNAME }}
-        password: ${{ secrets.TAX_SOL_3_PASSWORD }}
-        server_dir: public_html/taxsol.talrejaconsultant.com/
+        server: ${{ secrets.SERVER }}
+        username: ${{ secrets.USERNAME }}
+        password: ${{ secrets.PASSWORD }}
+        server-dir: public_html/taxsol.talrejaconsultant.com/
