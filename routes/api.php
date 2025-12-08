@@ -73,9 +73,9 @@ Route::middleware('auth:sanctum')->group(function () {
     });
 
 });
-// Route::post('save-return-tracker', [RetTrkController::class, 'saveReturnTracker']);
 
 // Route::get('branch', [GeneralController::class, 'listLinkAccounts']);
+// Route::post('save-return-tracker', [RetTrkController::class, 'saveReturnTracker']);
 
 // Route::get('list-client-profile/{id}', [ClientController::class, 'listClientProfile']);
 // Route::put('update-client-profile/{id}', [ClientController::class, 'updateClientProfile']);

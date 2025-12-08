@@ -16,6 +16,5 @@ class RTOClass implements RTOInterface
         } catch (\Exception $e) {
             return response()->error(false, $e->getMessage(), 500);
         }
-
     }
 }
