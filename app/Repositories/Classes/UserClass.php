@@ -2,9 +2,9 @@
 
 namespace App\Repositories\Classes;
 
-use App\Models\Profile;
 use App\Models\RoleUser;
 use App\Models\User;
+use App\Models\UserProfile;
 use App\Repositories\Interfaces\UserInterface;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
@@ -52,7 +52,7 @@ class UserClass implements UserInterface
 
             $user_info = User::create($payload);
 
-            Profile::create([
+            UserProfile::create([
                 'user_id' => $user_info->id,
             ]);
 

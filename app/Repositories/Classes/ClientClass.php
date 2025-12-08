@@ -111,7 +111,7 @@ class ClientClass implements ClientInterface
     public function listClientProfile($id)
     {
         try {
-            $list_client = Client::whereId($id)->with('clientProfile', 'businessStatus', 'city', 'feeTypes', 'feeTp', 'linkAccount')->first();
+            $list_client = Client::whereId($id)->with(['clientProfile', 'businessStatus', 'city', 'feeTypes', 'feeTp', 'linkAccount'])->first();
 
             return response()->success(true, $list_client, null, 200);
         } catch (\Exception $e) {
@@ -149,7 +149,7 @@ class ClientClass implements ClientInterface
                 'client_id' => $data['client_id'],
                 'fee_type_id' => $data['fee_type_id'],
                 'fee_amount' => $data['fee_amount'],
-                'reg_date' => $data['reg_date'],
+                'registeration_date' => $data['reg_date'],
             ];
 
             $where_clase = [

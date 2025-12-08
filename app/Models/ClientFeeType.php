@@ -11,7 +11,7 @@ class ClientFeeType extends Model
         'client_id',
         'fee_type_id',
         'fee_amount',
-        'reg_date',
+        'registeration_date',
     ];
 
     public function feeName(): HasOne
