@@ -63,4 +63,16 @@ class UserClass implements UserInterface
             return response()->error(false, $e->getMessage(), 500);
         }
     }
+
+    public function listUser($id = null)
+    {
+        try {
+
+            $list_users = $id ? User::with('userProfile')->wherePd($id)->get() : User::with('userProfile')->get();
+
+            return response()->success(true, $list_users, null, 200);
+        } catch (\Exception $e) {
+            return response()->error(false, $e->getMessage(), 500);
+        }
+    }
 }

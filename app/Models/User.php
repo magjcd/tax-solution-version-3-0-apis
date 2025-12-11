@@ -63,6 +63,11 @@ class User extends Authenticatable
         return $this->roles->contain('role_name', $role);
     }
 
+    public function userProfile()
+    {
+        return $this->hasOne(UserProfile::class);
+    }
+
     // protected static function booted()
     // {
     //     static::creating(function ($user) {

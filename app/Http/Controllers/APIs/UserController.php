@@ -36,4 +36,13 @@ class UserController extends Controller
             return response()->error(false, $e->getMessage(), 500);
         }
     }
+
+    public function listUser($id = null)
+    {
+        try {
+            return $id ? $this->user_interface->listUser($id) : $this->user_interface->listUser();
+        } catch (\Exception $e) {
+            return response()->error(false, $e->getMessage(), 500);
+        }
+    }
 }

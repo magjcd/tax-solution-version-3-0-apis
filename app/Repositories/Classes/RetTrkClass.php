@@ -21,7 +21,7 @@ class RetTrkClass implements RetTrkInterface
             $city_id = $client_array[3];
 
             $client_payload = [
-                'gj_date' => $data['transaction_date'],
+                'trans_date' => $data['transaction_date'],
                 'client_id' => $client_id,
                 'header_id' => $header_id,
                 'sub_header_id' => $sub_header_id,
@@ -39,7 +39,7 @@ class RetTrkClass implements RetTrkInterface
             Ledger::create($client_payload);
 
             $revenue_payload = [
-                'gj_date' => $data['transaction_date'],
+                'trans_date' => $data['transaction_date'],
                 'client_id' => $client_id,
                 'header_id' => $header_id,
                 'sub_header_id' => $sub_header_id,
@@ -68,7 +68,7 @@ class RetTrkClass implements RetTrkInterface
     public function listReturnTrackers($id = null)
     {
         try {
-            $list_ret_trks = Ledger::with('client_info', 'city', 'fee_type')->get();
+            $list_ret_trks = Ledger::with('client_info.clientProfile', 'city', 'fee_type')->whereHeaderId(1)->whereSubHeaderId(1)->get();
             $list_sng_ret_trk = Ledger::with('client_info', 'city', 'fee_type')->whereClientId($id)->get();
 
             $result = $id ? $list_sng_ret_trk : $list_ret_trks;

@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Ledger extends Model
 {
     protected $fillable = [
-        'gj_date',
+        'trans_date',
         'client_id',
         'header_id',
         'sub_header_id',
@@ -37,5 +37,10 @@ class Ledger extends Model
     public function fee_type()
     {
         return $this->hasOne(FeeType::class, 'id', 'fee_type_id');
+    }
+
+    public function user_id()
+    {
+        return $this->hasOne(User::class);
     }
 }
