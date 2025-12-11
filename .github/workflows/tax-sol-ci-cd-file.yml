@@ -45,8 +45,8 @@ jobs:
     # - name: Generate App Key
     #   run: php artisan key:generate
 
-    - name: Run Migrations
-      run: php artisan migrate:fresh --force
+    # - name: Run Migrations
+    #   run: php artisan migrate --force #no use here because it run this command on the remote reio of github and uses it's directory name whpich ultpimately fails
 
     - name: Run Optimization
       run: php artisan optimize
