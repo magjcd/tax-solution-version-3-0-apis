@@ -42,11 +42,11 @@ jobs:
     - name: Composer Dump
       run: composer dump-autoload
 
-    - name: Generate App Key
-      run: php artisan key:generate
+    # - name: Generate App Key
+    #   run: php artisan key:generate
 
     - name: Run Migrations
-      run: php artisan migrate --force
+      run: php artisan migrate:fresh --force
 
     - name: Run Optimization
       run: php artisan optimize
