@@ -20,7 +20,7 @@ class JVClass implements JVInterface
             $city_id = $client_array[3];
 
             $client_payload = [
-                'gj_date' => $data['jv_date'],
+                'trans_date' => $data['jv_date'],
                 'client_id' => $client_id,
                 'header_id' => $header_id,
                 'sub_header_id' => $sub_header_id,
@@ -34,7 +34,7 @@ class JVClass implements JVInterface
             ];
             // exit();
             $representative_payload = [
-                'gj_date' => $data['jv_date'],
+                'trans_date' => $data['jv_date'],
                 'client_id' => $client_id,
                 'header_id' => $header_id,
                 'sub_header_id' => $sub_header_id,

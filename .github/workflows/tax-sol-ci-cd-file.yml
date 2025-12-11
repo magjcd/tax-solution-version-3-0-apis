@@ -1,4 +1,4 @@
-name: Tax Solution Version 3.0
+name: Tax Solution Version 3.0.1
 
 on:
   push:
@@ -36,8 +36,8 @@ jobs:
     - name: Config Cache
       run: php artisan config:cache
 
-    - name: Clear Config Cache
-      run: php artisan config:clear
+    # - name: Clear Config Cache
+    #   run: php artisan config:clear
 
     - name: Composer Dump
       run: composer dump-autoload
@@ -57,4 +57,4 @@ jobs:
         server: ${{ secrets.SERVER }}
         username: ${{ secrets.USERNAME }}
         password: ${{ secrets.PASSWORD }}
-        # server-dir: taxsol.talrejaconsultant.com/
+        server-dir: /
