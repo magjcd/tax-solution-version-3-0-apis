@@ -30,6 +30,9 @@ class DatabaseSeeder extends Seeder
             HeaderSeeder::class,
             SubHeaderSeeder::class,
             AccountsSeeder::class,
+            ClassificationSeeder::class,
+            LinkAccountSeeder::class,
+            FeeAppliedSeeder::class,
         ]);
     }
 }
