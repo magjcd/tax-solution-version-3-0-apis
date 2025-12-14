@@ -2,7 +2,6 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class FeeAppliedSeeder extends Seeder
@@ -12,6 +11,9 @@ class FeeAppliedSeeder extends Seeder
      */
     public function run(): void
     {
-        //
+        \App\Models\FeeApplied::insert([
+            ['fee_applied' => 'Yes'],
+            ['fee_applied' => 'No'],
+        ]);
     }
 }

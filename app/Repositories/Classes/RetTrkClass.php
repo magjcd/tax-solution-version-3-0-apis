@@ -19,6 +19,7 @@ class RetTrkClass implements RetTrkInterface
             $header_id = $client_array[1];
             $sub_header_id = $client_array[2];
             $city_id = $client_array[3];
+            $client_name = $client_array[4];
 
             $client_payload = [
                 'trans_date' => $data['transaction_date'],
@@ -40,9 +41,9 @@ class RetTrkClass implements RetTrkInterface
 
             $revenue_payload = [
                 'trans_date' => $data['transaction_date'],
-                'client_id' => $client_id,
-                'header_id' => $header_id,
-                'sub_header_id' => $sub_header_id,
+                'client_id' => 1,
+                'header_id' => 4,
+                'sub_header_id' => 3,
                 'city_id' => $city_id,
                 'fee_type_id' => $data['fee_type_id'],
                 'fee_year' => $data['tax_years'],
@@ -57,7 +58,9 @@ class RetTrkClass implements RetTrkInterface
 
             DB::commit();
 
-            return response()->success(true, 'added', null, 200);
+            $message = '<strong>'.$data['fee_type_id'].' '.$data['fee_amount'].' </strong>for years <strong>'.$data['tax_years'].'</strong> of <strong>'.$client_name.'</strong> is recorded';
+
+            return response()->success(true, null, $message, 200);
         } catch (\Exception $e) {
             DB::rollBack();
 

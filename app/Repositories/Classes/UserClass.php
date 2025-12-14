@@ -68,7 +68,7 @@ class UserClass implements UserInterface
     {
         try {
 
-            $list_users = $id ? User::with('userProfile')->wherePd($id)->get() : User::with('userProfile')->get();
+            $list_users = (($id == null) ? User::get(['id', 'name', 'email']) : User::with('userProfile')->whereId($id)->get());
 
             return response()->success(true, $list_users, null, 200);
         } catch (\Exception $e) {

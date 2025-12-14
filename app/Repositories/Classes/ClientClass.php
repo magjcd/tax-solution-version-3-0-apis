@@ -101,7 +101,7 @@ class ClientClass implements ClientInterface
     public function listClients()
     {
         try {
-            $list_client = Client::with('city')->get();
+            $list_client = Client::with('city')->whereSubHeaderId(1)->get();
 
             return response()->success(true, $list_client, null, 200);
         } catch (\Exception $e) {
